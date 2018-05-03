@@ -4,7 +4,9 @@
 
 TEMPLATE = app
 TARGET = VASTsim_Qt
-INCLUDEPATH += .
+INCLUDEPATH += . \
+                ../../common \
+                ../../VASTsim
 
 QT += gui
 QT += widgets
@@ -21,6 +23,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 # Input
-HEADERS += mainwindow.h
+HEADERS += mainwindow.h \
+    vastvariables.h
 FORMS += mainwindow.ui
 SOURCES += main.cpp mainwindow.cpp
+
+LIBS += -L$$PWD/../../lib/ -lvastsim -lvast -lvastnet -lvastcommon -L$$PWD/../../../ACE_wrappers/lib -lACE
+
+INCLUDEPATH += $$PWD/../../
+DEPENDPATH += $$PWD/../../

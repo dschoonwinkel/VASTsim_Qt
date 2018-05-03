@@ -17,9 +17,11 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event) override;
+    void timerEvent(QTimerEvent *event) override;
 
 private:
     Ui::MainWindow *ui;
+    int m_timerId;
 };
 
 #endif // MAINWINDOW_H
